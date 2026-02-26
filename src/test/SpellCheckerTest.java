@@ -61,6 +61,7 @@ class SpellCheckerTest {
 		
     }
 	//i am assuming my suggest method looks thru spellchecker object for the word passed in as argument, and then returns the closest match to that word. 
+	//for the isCorrectlySpelled and suggest method, I am assuming that the strings exist in the spellchecker object
 
     @Test //test 8
     public void testSuggestReturnsOriginalIfAlreadyCorrect() {
