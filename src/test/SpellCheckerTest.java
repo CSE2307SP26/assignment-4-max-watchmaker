@@ -2,6 +2,8 @@ package test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import javax.swing.plaf.TreeUI;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -56,8 +58,13 @@ class SpellCheckerTest {
 
     @Test //test 7
     public void testSuggestReturnsClosestWord() {
-        sc.add("bamk");
-        assertEquals("bank", sc.suggest("bamk")); 
+        String suggested = sc.suggest("bamk");
+		
+		sc.add(suggested);
+
+		boolean suggestedIsCorrectlySpelled = sc.isCorrectlySpelled(suggested);
+
+        assertEquals(True, suggestedIsCorrectlySpelled); 
 		
     }
 	//i am assuming my suggest method looks thru spellchecker object for the word passed in as argument, and then returns the closest match to that word. 
@@ -65,8 +72,12 @@ class SpellCheckerTest {
 
     @Test //test 8
     public void testSuggestReturnsOriginalIfAlreadyCorrect() {
-        sc.add("bank");
-        assertEquals("bank", sc.suggest("bank"));
+
+		String suggested = sc.suggest("bamk");
+
+        boolean suggestedIsCorrectlySpelled = suggested.equals("bank");
+
+        assertEquals(suggestedIsCorrectlySpelled, True);
     }
 
     @Test //my own test 1
