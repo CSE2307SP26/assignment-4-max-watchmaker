@@ -49,7 +49,7 @@ class SpellCheckerTest {
     @Test //test 6
     public void testCaseInsensitiveSpellingCheck() {
         sc.add("cat");
-        assertTrue(sc.isCorrectlySpelled("CAT"));
+        assertTrue(sc.isCorrectlySpelled("CAT")); //my isCorrectlySpelled method should ignore case when checking if a word is spelled correctly
         assertTrue(sc.isCorrectlySpelled("CaT"));
         assertTrue(sc.isCorrectlySpelled("cat"));
     }
